@@ -1,4 +1,4 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -30,7 +30,7 @@ public class PlayerAnimation : MonoBehaviour
         if (faceRight)
             tempScale.x = 1f;
         else
-            tempScale.y = -1f;
+            tempScale.x = -1f;
 
         transform.localScale = tempScale;
     }
