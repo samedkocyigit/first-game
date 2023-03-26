@@ -26,24 +26,28 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMovement();
         HandleAnimation();
+        HandleFacingDirection();
     }
     void HandleMovement()
     {
-        xAxis =Input.GetAxisRaw(TagManger.HORIZONTAL_AXIS);
+        xAxis = Input.GetAxisRaw(TagManger.HORIZONTAL_AXIS);
         yAxis = Input.GetAxisRaw(TagManger.VERTICAL_AXIS);
 
         tempPos =transform.position;
 
         tempPos.x += xAxis * moveSpeed * Time.deltaTime;
         tempPos.y += yAxis * moveSpeed * Time.deltaTime;
-        if(tempPos.x<minBound_X)
-            tempPos.x = minBound_X;
-        if(tempPos.x>maxBound_X)
-            tempPos.x = maxBound_X;
-        if(tempPos.y<minBound_Y)   
-            tempPos.y = minBound_Y;
-        if(tempPos.y>maxBound_Y)    
-            tempPos.y = maxBound_Y;
+        if(tempPos.x < minBound_X)
+           tempPos.x = minBound_X;
+
+        if(tempPos.x > maxBound_X)
+           tempPos.x = maxBound_X;
+
+        if(tempPos.y < minBound_Y)   
+           tempPos.y = minBound_Y;
+
+        if(tempPos.y > maxBound_Y)    
+           tempPos.y = maxBound_Y;
 
         transform.position = tempPos;
     }
@@ -53,5 +57,12 @@ public class PlayerMovement : MonoBehaviour
             playerAnimation.PlayAnimation(TagManger.WALK_ANIMATION_NAME);
         else
             playerAnimation.PlayAnimation(TagManger.IDLE_ANIMATION_NAME);
+    }
+    void HandleFacingDirection()
+    {
+        if (xAxis > 0)
+            playerAnimation.SetFacingDirection(true);
+        else if (xAxis < 0)
+            playerAnimation.SetFacingDirection(false);
     }
 }
