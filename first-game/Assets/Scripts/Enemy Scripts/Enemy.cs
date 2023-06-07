@@ -9,8 +9,6 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 2f;
 
-    private Vector3 tempScale;
-
     [SerializeField]
     private float stoppingDistance = 1.5f;
 
