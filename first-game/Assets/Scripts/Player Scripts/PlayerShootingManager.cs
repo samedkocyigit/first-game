@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,5 +17,7 @@ public class PlayerShootingManager : MonoBehaviour
 
         if(facingDirection<0)
             newBullet.GetComponent<Bullet>().SetNegativeSpeed();
+
+        SoundManager.instance.PlayerShootSound();
     }
 }

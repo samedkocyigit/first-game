@@ -35,7 +35,12 @@ public class Bullet : MonoBehaviour
     {
         if(collision.CompareTag(TagManger.ENEMY_TAG))
         {
-
+            collision.GetComponent<EnemyHealth>().TakeDamage(damageAmount);
+            Destroy(gameObject);
+        }
+        if (collision.CompareTag("Collector"))
+        {
+           Destroy(this.gameObject);
         }
     }
 } 
